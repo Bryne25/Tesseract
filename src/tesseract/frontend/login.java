@@ -14,12 +14,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import tesseract.backend.db;
+import tesseract.backend.sdfsdf;
 
 /**
  *
  * @author TEST
  */
 public class login extends Application {
+    
     
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -34,6 +36,7 @@ public class login extends Application {
      */
     public static void main(String[] args) {
         Connection con = db.con();
+        sdfsdf.createTable();
         launch(args);
     }
     

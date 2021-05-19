@@ -3,8 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesseract.frontend.LoginController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesseract.frontend.LoginController">
    <children>
-    <Button fx:id="shitBtn" layoutX="202.0" layoutY="312.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="196.0" text="Shit" />
+    <Button fx:id="shitBtn" layoutX="202.0" layoutY="312.0" mnemonicParsing="false" onAction="#youClickedShit" prefHeight="25.0" prefWidth="196.0" text="Shit" />
    </children>
 </AnchorPane>
