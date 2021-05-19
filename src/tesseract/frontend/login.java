@@ -21,13 +21,14 @@ import tesseract.backend.sdfsdf;
  * @author TEST
  */
 public class login extends Application {
-    
-    
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         primaryStage.setTitle("Tesseract");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setHeight(600);
+        primaryStage.setWidth(950);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
@@ -36,8 +37,6 @@ public class login extends Application {
      */
     public static void main(String[] args) {
         Connection con = db.con();
-        sdfsdf.createTable();
         launch(args);
     }
-    
 }
