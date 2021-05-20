@@ -13,22 +13,47 @@ public class userLogin {
     
     
     public static Boolean account(String username,String password){
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet res = null;
         try{
-            Connection con = db.con();
+            con = db.con();
             String queryString = "SELECT * FROM cashier WHERE username = ? AND password = ?";
-            PreparedStatement stmt = con.prepareStatement(queryString);
+            stmt = con.prepareStatement(queryString);
             stmt.setString(1,username);
             stmt.setString(2,password);
-            ResultSet res = stmt.executeQuery(); 
+            res = stmt.executeQuery(); 
             
             if(res.next()){
                 return true;
             }
         }catch(SQLException e){
             System.out.println(e.toString());
+        }finally {
+            if(res != null){
+                try { 
+                    res.close(); 
+                }catch (SQLException e) { 
+                    System.out.println(e.toString());
+                }
+            }   
+            
+            if(stmt != null){
+                try {
+                    stmt.close(); 
+                } catch (SQLException e) {
+                    System.out.println(e.toString());
+                }
+            }
+        
+            if(con != null){
+                try { 
+                    con.close(); 
+                } catch (SQLException e) { 
+                    System.out.println(e.toString());
+                }
+            } 
         }
         return false;
-    }
-    
-    
+    }   
 }

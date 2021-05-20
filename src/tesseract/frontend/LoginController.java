@@ -1,7 +1,5 @@
 package tesseract.frontend;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,7 +12,6 @@ import tesseract.backend.userLogin;
 
 public class LoginController {
 
-
     @FXML
     private AnchorPane mainPane;
 
@@ -22,21 +19,28 @@ public class LoginController {
     private Button loginBtn;
     
     @FXML
-    private TextField emailAd;
-    
-    @FXML
     private PasswordField pass;
     
     @FXML
     private Text loginErrorText;
+    
+    @FXML
+    private TextField userName;
 
     @FXML
     void clickedLoginBtn(ActionEvent event) {
-        Boolean isValid = userLogin.account(this.getEmail(), this.getPassword());
+        Boolean isValid = userLogin.account(this.getUsername(), this.getPassword());
         if(!isValid){
             loginErrorText.setVisible(true);
             loginErrorText.setText("Incorrect Username or Password");
             loginErrorText.setFill(Color.RED);
+        }else{
+            String activeUser = getUsername();
+            if(activeUser.equals("admin")){
+                //scene load admin here
+            }else{
+                //scene load cashier here
+            }
         }
     }
 
@@ -46,8 +50,8 @@ public class LoginController {
         loginErrorText.setText("");
     }
     
-    public String getEmail(){
-        String username = emailAd.getText(); 
+    public String getUsername(){
+        String username = userName.getText(); 
         return username;
     }
     
@@ -55,4 +59,5 @@ public class LoginController {
         String password = pass.getText();
         return password;
     }
+    
 }
