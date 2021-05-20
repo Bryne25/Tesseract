@@ -20,7 +20,7 @@
             <Image url="@Pictures/login%20pic%201.png" />
          </image>
       </ImageView>
-      <TextField fx:id="emailAd" layoutX="585.0" layoutY="258.0" prefHeight="59.0" prefWidth="280.0" promptText="Email Address" style="-fx-border-color: black;">
+      <TextField fx:id="emailAd" layoutX="585.0" layoutY="258.0" prefHeight="59.0" prefWidth="280.0" promptText="Username" style="-fx-border-color: black;">
          <font>
             <Font name="Consolas" size="20.0" />
          </font>
@@ -41,5 +41,6 @@
             <Font name="Century Gothic" size="49.0" />
          </font>
       </Text>
+      <Text fx:id="loginErrorText" layoutX="585.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

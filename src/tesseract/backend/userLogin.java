@@ -5,16 +5,30 @@
  */
 package tesseract.backend;
 import java.sql.*;
-import tesseract.frontend.LoginController;
 /**
  *
  * @author oye
  */
 public class userLogin {
-    Connection con = db.con();
     
-    public static void check(String email){
-        System.out.println(email);
+    
+    public static Boolean account(String username,String password){
+        try{
+            Connection con = db.con();
+            String queryString = "SELECT * FROM cashier WHERE username = ? AND password = ?";
+            PreparedStatement stmt = con.prepareStatement(queryString);
+            stmt.setString(1,username);
+            stmt.setString(2,password);
+            ResultSet res = stmt.executeQuery(); 
+            
+            if(res.next()){
+                return true;
+            }
+        }catch(SQLException e){
+            System.out.println(e.toString());
+        }
+        return false;
     }
+    
     
 }

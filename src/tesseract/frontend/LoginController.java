@@ -8,15 +8,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import tesseract.backend.userLogin;
 
 public class LoginController {
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private AnchorPane mainPane;
@@ -29,20 +26,33 @@ public class LoginController {
     
     @FXML
     private PasswordField pass;
+    
+    @FXML
+    private Text loginErrorText;
 
     @FXML
     void clickedLoginBtn(ActionEvent event) {
-        userLogin.check(this.getEmail());
+        Boolean isValid = userLogin.account(this.getEmail(), this.getPassword());
+        if(!isValid){
+            loginErrorText.setVisible(true);
+            loginErrorText.setText("Incorrect Username or Password");
+            loginErrorText.setFill(Color.RED);
+        }
     }
 
-    @FXML
     void initialize() {
         assert mainPane != null : "fx:id=\"mainPane\" was not injected: check your FXML file 'login.fxml'.";
         assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'login.fxml'.";
+        loginErrorText.setText("");
     }
     
     public String getEmail(){
-        String email = emailAd.getText(); 
-        return email;
+        String username = emailAd.getText(); 
+        return username;
+    }
+    
+    public String getPassword(){
+        String password = pass.getText();
+        return password;
     }
 }
