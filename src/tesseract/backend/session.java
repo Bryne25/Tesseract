@@ -14,10 +14,18 @@ public class session {
     static String userName = null;
     static String fname = null;
     static String lname = null;
-    static Boolean isSessionActive = null;
+    static Boolean isSessionActive = false;
     
     public static Boolean checkSession(){
+        System.out.println(isSessionActive);
         return isSessionActive;
+    }
+    
+    public static void endSession(){
+        userName = null;
+        fname = null;
+        lname = null;
+        isSessionActive = false;
     }
     
     public static void acceptSession(String activeUser){
@@ -28,6 +36,7 @@ public class session {
             con = db.con();
             String queryString = "SELECT * FROM cashier WHERE Username = ?";
             stmt = con.prepareStatement(queryString);
+            stmt.setString(1, activeUser);
             
             res = stmt.executeQuery(); 
             

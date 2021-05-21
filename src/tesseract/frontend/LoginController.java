@@ -39,20 +39,16 @@ public class LoginController {
             String activeUser = getUsername();
             
             if(activeUser.equals("admin")){
-                createSession(activeUser);
-                System.out.println("Welcome Admin!");
+                session.acceptSession(activeUser);
+                
                 //scene load admin here
             }else{
-                createSession(activeUser);
-                System.out.println("Welcome Cashier!");
+                session.acceptSession(activeUser);
                 //scene load cashier here
             }
         }
     }
 
-    void createSession(String activeUser){
-        session.acceptSession(activeUser);
-    }
     
     void initialize() {
         assert mainPane != null : "fx:id=\"mainPane\" was not injected: check your FXML file 'login.fxml'.";
