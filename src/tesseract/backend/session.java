@@ -7,25 +7,35 @@ package tesseract.backend;
 import java.sql.*;
 /**
  *
- * @author oye
+ * @author TEST
  */
-public class userLogin {
+public class session {
+    //Creates sessions for user
+    static String userName = null;
+    static String fname = null;
+    static String lname = null;
+    static Boolean isSessionActive = null;
     
+    public static Boolean checkSession(){
+        return isSessionActive;
+    }
     
-    public static Boolean account(String username,String password){
+    public static void acceptSession(String activeUser){
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM cashier WHERE Username = ? AND Password = ?";
+            String queryString = "SELECT * FROM cashier WHERE Username = ?";
             stmt = con.prepareStatement(queryString);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
+            
             res = stmt.executeQuery(); 
             
             if(res.next()){
-                return true;
+                userName = res.getString("username");
+                fname = res.getString("First_Name");
+                lname = res.getString("Last_Name");
+                isSessionActive = true;
             }
         }catch(SQLException e){
             System.out.println(e.toString());
@@ -54,6 +64,6 @@ public class userLogin {
                 }
             } 
         }
-        return false;
-    }   
+    }
+    
 }

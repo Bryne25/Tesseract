@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import tesseract.backend.session;
 import tesseract.backend.userLogin;
 
 public class LoginController {
@@ -36,18 +37,26 @@ public class LoginController {
             loginErrorText.setFill(Color.RED);
         }else{
             String activeUser = getUsername();
+            
             if(activeUser.equals("admin")){
+                createSession(activeUser);
+                System.out.println("Welcome Admin!");
                 //scene load admin here
             }else{
+                createSession(activeUser);
+                System.out.println("Welcome Cashier!");
                 //scene load cashier here
             }
         }
     }
 
+    void createSession(String activeUser){
+        session.acceptSession(activeUser);
+    }
+    
     void initialize() {
         assert mainPane != null : "fx:id=\"mainPane\" was not injected: check your FXML file 'login.fxml'.";
         assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'login.fxml'.";
-        loginErrorText.setText("");
     }
     
     public String getUsername(){
