@@ -52,7 +52,7 @@ public class LoginController {
                 //scene load admin here
             }else{
                 session.acceptSession(activeUser);
-                //scene load cashier here
+                System.out.println(session.getUsername());
             }
         }
     }

@@ -4,48 +4,28 @@
  * and open the template in the editor.
  */
 package tesseract.backend;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author TEST
  */
-public class session {
-    //Creates sessions for user
-    static String userName = null;
-    static String fname = null;
-    static String lname = null;
-    static Boolean isSessionActive = false;
-    
-    public static Boolean checkSession(){
-        System.out.println(isSessionActive);
-        return isSessionActive;
-    }
-    
-    public static void endSession(){
-        userName = null;
-        fname = null;
-        lname = null;
-        isSessionActive = false;
-    }
-    
-    public static void acceptSession(String activeUser){
+public class deleteCashier {
+    public static void delete(int Id){
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM cashier WHERE Username = ?";
+            String queryString = "DELETE FROM cashier WHERE Cashier_Id = ?";
             stmt = con.prepareStatement(queryString);
-            stmt.setString(1, activeUser);
+            stmt.setInt(1, Id);
+            stmt.executeUpdate(); 
             
-            res = stmt.executeQuery(); 
-            
-            if(res.next()){
-                userName = res.getString("username");
-                fname = res.getString("First_Name");
-                lname = res.getString("Last_Name");
-                isSessionActive = true;
-            }
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -74,9 +54,4 @@ public class session {
             } 
         }
     }
-    
-    public static String getUsername(){
-        return userName;
-    }
-    
 }

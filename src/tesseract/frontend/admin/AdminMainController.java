@@ -56,8 +56,11 @@ public class AdminMainController implements Initializable {
     }
 
     @FXML
-    private void editCashier(ActionEvent event) {
-        
+    private void editCashier(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("cashierPane.fxml"));
+        Stage window = (Stage) logOut.getScene().getWindow();
+        window.setScene(new Scene(root,950,600));
+        session.endSession();
     }
 
 

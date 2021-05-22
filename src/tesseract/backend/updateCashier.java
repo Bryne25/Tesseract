@@ -4,48 +4,36 @@
  * and open the template in the editor.
  */
 package tesseract.backend;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author TEST
  */
-public class session {
-    //Creates sessions for user
-    static String userName = null;
-    static String fname = null;
-    static String lname = null;
-    static Boolean isSessionActive = false;
-    
-    public static Boolean checkSession(){
-        System.out.println(isSessionActive);
-        return isSessionActive;
-    }
-    
-    public static void endSession(){
-        userName = null;
-        fname = null;
-        lname = null;
-        isSessionActive = false;
-    }
-    
-    public static void acceptSession(String activeUser){
+public class updateCashier {
+    public static void updateCashier(int Id, String fname, String lname, String username, String password){
+        if(Id == 99999){
+            username = "admin";
+        }
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM cashier WHERE Username = ?";
+            String queryString = "UPDATE cashier SET First_Name = ?, Last_Name = ?,Username= ?,Password = ? WHERE Cashier_ID = ?";
             stmt = con.prepareStatement(queryString);
-            stmt.setString(1, activeUser);
+            stmt.setString(1,fname);
+            stmt.setString(2,lname);
+            stmt.setString(3,username);
+            stmt.setString(4,password);
+            stmt.setInt(5,Id);
+            stmt.executeUpdate(); 
+   
             
-            res = stmt.executeQuery(); 
-            
-            if(res.next()){
-                userName = res.getString("username");
-                fname = res.getString("First_Name");
-                lname = res.getString("Last_Name");
-                isSessionActive = true;
-            }
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -74,9 +62,4 @@ public class session {
             } 
         }
     }
-    
-    public static String getUsername(){
-        return userName;
-    }
-    
 }
