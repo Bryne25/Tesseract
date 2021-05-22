@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/LoginController.java</file>
             <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/userLogin.java</file>
-            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/session.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/delProd.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/loadProduct.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/admin/ProductPaneController.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/prodTable.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/updateProd.java</file>
         </group>
     </open-files>
 </project-private>

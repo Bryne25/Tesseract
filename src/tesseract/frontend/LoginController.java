@@ -1,15 +1,21 @@
 package tesseract.frontend;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import tesseract.backend.session;
 import tesseract.backend.userLogin;
+
 
 public class LoginController {
 
@@ -29,7 +35,7 @@ public class LoginController {
     private TextField userName;
 
     @FXML
-    void clickedLoginBtn(ActionEvent event) {
+    void clickedLoginBtn(ActionEvent event) throws IOException {
         Boolean isValid = userLogin.account(this.getUsername(), this.getPassword());
         if(!isValid){
             loginErrorText.setVisible(true);
@@ -40,7 +46,9 @@ public class LoginController {
             
             if(activeUser.equals("admin")){
                 session.acceptSession(activeUser);
-                
+                Parent root = FXMLLoader.load(getClass().getResource("admin/adminMain.fxml"));
+                Stage window = (Stage) loginBtn.getScene().getWindow();
+                window.setScene(new Scene(root,950,600));
                 //scene load admin here
             }else{
                 session.acceptSession(activeUser);
@@ -51,8 +59,6 @@ public class LoginController {
 
     
     void initialize() {
-        assert mainPane != null : "fx:id=\"mainPane\" was not injected: check your FXML file 'login.fxml'.";
-        assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'login.fxml'.";
     }
     
     public String getUsername(){
