@@ -49,6 +49,8 @@ public class EditCashierController implements Initializable {
     private PasswordField pword;
     @FXML
     private PasswordField pwordConfirm;
+    
+    private String adminCheck;
 
     /**
      * Initializes the controller class.
@@ -68,10 +70,14 @@ public class EditCashierController implements Initializable {
     @FXML
     private void updateBtn(ActionEvent event) throws IOException {
         if(pword.getText().equals(pwordConfirm.getText())){
-            updateCashier.updateCashier(id, fname.getText(), lname.getText(), username.getText(), pword.getText());
-            Parent root = FXMLLoader.load(getClass().getResource("cashierPane.fxml"));
-            Stage window = (Stage) back.getScene().getWindow();
-            window.setScene(new Scene(root,950,600));
+            if(adminCheck.equals("admin")){
+                username.setText("admin");
+                updateCashier.updateCashier(id, fname.getText(), lname.getText(), username.getText(), pword.getText());
+                Parent root = FXMLLoader.load(getClass().getResource("cashierPane.fxml"));
+                Stage window = (Stage) back.getScene().getWindow();
+                window.setScene(new Scene(root,950,600));
+            }
+            
         }else{
             err.setText("Passwords are not matching");
         }
@@ -94,6 +100,7 @@ public class EditCashierController implements Initializable {
         fname.setText(loadCashier.getFname(Id));
         lname.setText(loadCashier.getLname(Id));
         username.setText(loadCashier.getUn(Id));
+        adminCheck = username.getText();
         pword.setText(loadCashier.getPass(Id));
         pwordConfirm.setText(loadCashier.getPass(Id));
     }

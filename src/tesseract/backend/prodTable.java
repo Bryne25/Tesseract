@@ -26,17 +26,18 @@ import tesseract.frontend.admin.ProductPaneController;
  */
 public class prodTable{
     String prodName,prodDesc;
-    int prodId, prodPrice;
+    int prodId, prodPrice, prodStock;
     
     Button edit;
     
     
     
-    public prodTable(String prodName, String prodDesc, int prodId, int prodPrice){
+    public prodTable(String prodName, String prodDesc, int prodId, int prodPrice, int prodStock){
         this.prodName = prodName;
         this.prodDesc = prodDesc;
         this.prodId = prodId;
         this.prodPrice = prodPrice;
+        this.prodStock = prodStock;
         this.edit = new Button("Edit Product");
         Font font = Font.font("ArialBlack", FontWeight.BOLD, FontPosture.REGULAR, 12);
         this.edit.setStyle("-fx-background-color: #1c1c1c; -fx-text-fill: white;");
@@ -60,6 +61,14 @@ public class prodTable{
 
     public void setProdDesc(String prodDesc) {
         this.prodDesc = prodDesc;
+    }
+
+    public int getProdStock() {
+        return prodStock;
+    }
+
+    public void setProdStock(int prodStock) {
+        this.prodStock = prodStock;
     }
 
     public int getProdId() {

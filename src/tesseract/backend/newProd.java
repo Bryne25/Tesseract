@@ -15,17 +15,18 @@ import java.sql.SQLException;
  * @author TEST
  */
 public class newProd {
-    public static void addProd(String name, int price, String desc){
+    public static void addProd(String name, int price, String desc, int stock){
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "INSERT INTO product(`Product_Name`,`Product_Price`,`Product_Description`) VALUES(?,?,?)";
+            String queryString = "INSERT INTO product(`Product_Name`,`Product_Price`,`Product_Description`,`Product_Stock`) VALUES(?,?,?,?)";
             stmt = con.prepareStatement(queryString);
             stmt.setString(1, name);
             stmt.setInt(2, price);
             stmt.setString(3, desc);
+            stmt.setInt(4, stock);
             stmt.executeUpdate(); 
             
         }catch(SQLException e){

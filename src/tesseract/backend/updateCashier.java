@@ -16,9 +16,6 @@ import java.sql.SQLException;
  */
 public class updateCashier {
     public static void updateCashier(int Id, String fname, String lname, String username, String password){
-        if(Id == 99999){
-            username = "admin";
-        }
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;

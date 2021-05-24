@@ -24,39 +24,45 @@
          </children>
       </AnchorPane>
    </top>
-   <bottom>
+   <center>
       <AnchorPane prefHeight="340.0" prefWidth="950.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="176.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name">
+            <TextArea fx:id="prodStock" layoutX="176.0" layoutY="376.0" prefHeight="47.0" prefWidth="599.0" />
+            <Text layoutX="176.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="176.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Price">
+            <Text layoutX="176.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Price">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="176.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Description" wrappingWidth="145.33984375">
+            <Text layoutX="176.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Description" wrappingWidth="145.33984375">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="update" layoutX="174.0" layoutY="407.0" mnemonicParsing="false" onAction="#updateBtn" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #1c1c1c;" text="Update" textFill="WHITE" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="627.0" AnchorPane.topAnchor="407.0">
+            <Button fx:id="update" layoutX="176.0" layoutY="449.0" mnemonicParsing="false" onAction="#updateBtn" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #1c1c1c;" text="Update" textFill="WHITE" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="176.0" AnchorPane.rightAnchor="625.0" AnchorPane.topAnchor="449.0">
                <font>
                   <Font name="Arial Black" size="16.0" />
                </font>
             </Button>
-            <TextArea fx:id="prodName" layoutX="176.0" layoutY="64.0" prefHeight="47.0" prefWidth="599.0" />
-            <TextArea fx:id="prodPrice" layoutX="176.0" layoutY="152.0" prefHeight="47.0" prefWidth="599.0" />
-            <TextArea fx:id="prodDesc" layoutX="176.0" layoutY="229.0" prefHeight="155.0" prefWidth="599.0" wrapText="true" />
-            <Text fx:id="error" fill="RED" layoutX="447.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="89.0" />
-            <Button fx:id="del" layoutX="344.0" layoutY="407.0" mnemonicParsing="false" onAction="#delBtn" style="-fx-background-color: #ed4337;" text="Delete" textFill="WHITE">
+            <TextArea fx:id="prodName" layoutX="176.0" layoutY="46.0" prefHeight="47.0" prefWidth="599.0" />
+            <TextArea fx:id="prodPrice" layoutX="176.0" layoutY="120.0" prefHeight="47.0" prefWidth="599.0" />
+            <TextArea fx:id="prodDesc" layoutX="176.0" layoutY="193.0" prefHeight="155.0" prefWidth="599.0" wrapText="true" />
+            <Text fx:id="error" fill="RED" layoutX="435.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="340.0" />
+            <Button fx:id="del" layoutX="346.0" layoutY="449.0" mnemonicParsing="false" onAction="#delBtn" style="-fx-background-color: #ed4337;" text="Delete" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="16.0" />
                </font>
             </Button>
+            <Text layoutX="176.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Stock">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
-   </bottom>
+   </center>
 </BorderPane>

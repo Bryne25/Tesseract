@@ -19,7 +19,7 @@ import javafx.collections.ObservableList;
 public class loadProduct {
     
     static String prodName,prodDesc;
-    static int prodId, prodPrice;
+    static int prodId, prodPrice, prodStock;
     
     public static ObservableList loadData(){
         ObservableList<prodTable> data = FXCollections.observableArrayList();
@@ -37,8 +37,9 @@ public class loadProduct {
                 prodName = res.getString("Product_Name");
                 prodDesc = res.getString("Product_Description");
                 prodPrice = res.getInt("Product_Price");
+                prodStock = res.getInt("Product_Stock");
                 
-                data.add(new prodTable(prodName,prodDesc,prodId,prodPrice));
+                data.add(new prodTable(prodName,prodDesc,prodId,prodPrice,prodStock));
             }
         }catch(SQLException e){
             System.out.println(e.toString());
@@ -176,6 +177,52 @@ public class loadProduct {
             
             if(res.next()){
                 desc = res.getString("Product_Description");
+               
+            }
+        }catch(SQLException e){
+            System.out.println(e.toString());
+        }finally {
+            if(res != null){
+                try { 
+                    res.close(); 
+                }catch (SQLException e) { 
+                    System.out.println(e.toString());
+                }
+            }   
+            
+            if(stmt != null){
+                try {
+                    stmt.close(); 
+                } catch (SQLException e) {
+                    System.out.println(e.toString());
+                }
+            }
+        
+            if(con != null){
+                try { 
+                    con.close(); 
+                } catch (SQLException e) { 
+                    System.out.println(e.toString());
+                }
+            } 
+        }
+        return desc;
+    }
+    
+    public static String getProdStock(int Id){
+        String desc = null;
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet res = null;
+        try{
+            con = db.con();
+            String queryString = "SELECT * FROM product WHERE Product_ID = ?";
+            stmt = con.prepareStatement(queryString);
+            stmt.setInt(1,Id);
+            res = stmt.executeQuery(); 
+            
+            if(res.next()){
+                desc = res.getString("Product_Stock");
                
             }
         }catch(SQLException e){

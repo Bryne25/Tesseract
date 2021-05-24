@@ -39,6 +39,8 @@ public class NewProdController implements Initializable {
     private Button add;
     @FXML
     private Text err;
+    @FXML
+    private TextArea prodStock;
 
     /**
      * Initializes the controller class.
@@ -57,8 +59,8 @@ public class NewProdController implements Initializable {
 
     @FXML
     private void addProd(ActionEvent event) throws IOException {
-        if(isNumeric(prodPrice.getText())){
-            newProd.addProd( prodName.getText(),Integer.parseInt(prodPrice.getText()) , prodDesc.getText());
+        if(isNumeric(prodPrice.getText()) && isNumeric(prodStock.getText())){
+            newProd.addProd( prodName.getText(),Integer.parseInt(prodPrice.getText()) , prodDesc.getText(), Integer.parseInt(prodStock.getText()));
             Parent root = FXMLLoader.load(getClass().getResource("ediProduct.fxml"));
             Stage window = (Stage) back.getScene().getWindow();
             window.setScene(new Scene(root,950,600));

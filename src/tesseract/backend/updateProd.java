@@ -11,19 +11,20 @@ import java.sql.*;
  * @author TEST
  */
 public class updateProd {
-    public static void updateProduct(int Id, String prodName, int prodPrice, String prodDesc){
+    public static void updateProduct(int Id, String prodName, int prodPrice, String prodDesc,int stock){
         String name = null;
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "UPDATE product SET Product_Name = ?, Product_Price = ?,Product_Description= ? WHERE Product_ID = ?";
+            String queryString = "UPDATE product SET Product_Name = ?, Product_Price = ?,Product_Description= ?, Product_Stock =? WHERE Product_ID = ?";
             stmt = con.prepareStatement(queryString);
             stmt.setString(1,prodName);
             stmt.setInt(2,prodPrice);
             stmt.setString(3,prodDesc);
-            stmt.setInt(4,Id);
+            stmt.setInt(4,stock);
+            stmt.setInt(5,Id);
             stmt.executeUpdate(); 
    
             

@@ -46,6 +46,8 @@ public class EdiProductController implements Initializable {
     private TableColumn<prodTable, Button> action;
     @FXML
     private Button newProd;
+    @FXML
+    private TableColumn<prodTable, String> prodStock;
 
     /**
      * Initializes the controller class.
@@ -57,6 +59,7 @@ public class EdiProductController implements Initializable {
         prodName.setCellValueFactory(new PropertyValueFactory<>("prodName"));
         prodPrice.setCellValueFactory(new PropertyValueFactory<>("prodPrice"));
         prodDesc.setCellValueFactory(new PropertyValueFactory<>("prodDesc"));
+        prodStock.setCellValueFactory(new PropertyValueFactory<>("prodStock"));
         action.setCellValueFactory(new PropertyValueFactory<>("edit"));
         
         

@@ -48,6 +48,8 @@ public class ProductPaneController implements Initializable {
     private Text title;
     @FXML
     private Text error;
+    @FXML
+    private TextArea prodStock;
     
     /**
      * Initializes the controller class.
@@ -62,6 +64,7 @@ public class ProductPaneController implements Initializable {
         prodName.setText(loadProduct.getProdName(Id));
         prodPrice.setText(String.valueOf(loadProduct.getProdPrice(Id)));
         prodDesc.setText(loadProduct.getProdDesc(Id));
+        prodStock.setText(loadProduct.getProdStock(Id));
     }
 
     public static void getProdId(int Id){
@@ -87,8 +90,8 @@ public class ProductPaneController implements Initializable {
     private void updateBtn(ActionEvent event) throws IOException {
         //data validation
         
-        if(isNumeric(prodPrice.getText())){
-            updateProd.updateProduct(id, prodName.getText(),Integer.parseInt(prodPrice.getText()) , prodDesc.getText());
+        if(isNumeric(prodPrice.getText()) && isNumeric(prodStock.getText()) ){
+            updateProd.updateProduct(id, prodName.getText(),Integer.parseInt(prodPrice.getText()) , prodDesc.getText(),Integer.parseInt(prodStock.getText()));
             Parent root = FXMLLoader.load(getClass().getResource("ediProduct.fxml"));
             Stage window = (Stage) back.getScene().getWindow();
             window.setScene(new Scene(root,950,600));

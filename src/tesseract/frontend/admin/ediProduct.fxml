@@ -36,8 +36,9 @@
           <TableColumn fx:id="prodId" editable="false" prefWidth="75.0" resizable="false" text="Product ID" />
           <TableColumn fx:id="prodName" editable="false" prefWidth="150.0" resizable="false" text="Product Name" />
             <TableColumn fx:id="prodPrice" editable="false" prefWidth="187.0" resizable="false" text="Product Price" />
-            <TableColumn fx:id="prodDesc" editable="false" prefWidth="421.0" resizable="false" text="Product Description" />
-            <TableColumn fx:id="action" editable="false" prefWidth="115.0" resizable="false" text="Action" />
+            <TableColumn fx:id="prodDesc" editable="false" prefWidth="219.33331298828125" resizable="false" text="Product Description" />
+            <TableColumn fx:id="prodStock" editable="false" prefWidth="200.0" resizable="false" text="Number of Stocks" />
+            <TableColumn fx:id="action" editable="false" prefWidth="118.0" resizable="false" text="Action" />
         </columns>
       </TableView>
    </center>
