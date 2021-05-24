@@ -59,6 +59,10 @@ public class LoginController {
 
     
     void initialize() {
+<<<<<<< HEAD
+        loginErrorText.setText("");
+=======
+>>>>>>> 6377b1abd9e3fbb2a97e8800c56e23271fbd1f45
     }
     
     public String getUsername(){
