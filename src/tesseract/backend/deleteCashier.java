@@ -4,29 +4,28 @@
  * and open the template in the editor.
  */
 package tesseract.backend;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
- * @author oye
+ * @author TEST
  */
-public class userLogin {
-    
-    
-    public static Boolean account(String username,String password){
+public class deleteCashier {
+    public static void delete(int Id){
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM cashier WHERE Username = ? AND Password = ?";
+            String queryString = "DELETE FROM cashier WHERE Cashier_Id = ?";
             stmt = con.prepareStatement(queryString);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            res = stmt.executeQuery(); 
+            stmt.setInt(1, Id);
+            stmt.executeUpdate(); 
             
-            if(res.next()){
-                return true;
-            }
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -54,6 +53,5 @@ public class userLogin {
                 }
             } 
         }
-        return false;
-    }   
+    }
 }

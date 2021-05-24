@@ -5,28 +5,29 @@
  */
 package tesseract.backend;
 import java.sql.*;
+
 /**
  *
- * @author oye
+ * @author TEST
  */
-public class userLogin {
-    
-    
-    public static Boolean account(String username,String password){
+public class updateProd {
+    public static void updateProduct(int Id, String prodName, int prodPrice, String prodDesc,int stock){
+        String name = null;
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM cashier WHERE Username = ? AND Password = ?";
+            String queryString = "UPDATE product SET Product_Name = ?, Product_Price = ?,Product_Description= ?, Product_Stock =? WHERE Product_ID = ?";
             stmt = con.prepareStatement(queryString);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            res = stmt.executeQuery(); 
+            stmt.setString(1,prodName);
+            stmt.setInt(2,prodPrice);
+            stmt.setString(3,prodDesc);
+            stmt.setInt(4,stock);
+            stmt.setInt(5,Id);
+            stmt.executeUpdate(); 
+   
             
-            if(res.next()){
-                return true;
-            }
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -54,6 +55,5 @@ public class userLogin {
                 }
             } 
         }
-        return false;
-    }   
+    }
 }

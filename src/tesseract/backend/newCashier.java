@@ -4,29 +4,32 @@
  * and open the template in the editor.
  */
 package tesseract.backend;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
- * @author oye
+ * @author TEST
  */
-public class userLogin {
-    
-    
-    public static Boolean account(String username,String password){
+public class newCashier {
+
+    public static void addCashier(String fname,String lname,String username,String password) {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM cashier WHERE Username = ? AND Password = ?";
+            String queryString = "INSERT INTO cashier(`First_Name`,`Last_Name`,`Username`,`Password`) VALUES(?,?,?,?)";
             stmt = con.prepareStatement(queryString);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            res = stmt.executeQuery(); 
+            stmt.setString(1, fname);
+            stmt.setString(2, lname);
+            stmt.setString(3, username);
+            stmt.setString(4, password);
+            stmt.executeUpdate(); 
             
-            if(res.next()){
-                return true;
-            }
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -54,6 +57,6 @@ public class userLogin {
                 }
             } 
         }
-        return false;
-    }   
+    }
+    
 }

@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Tesseract/src/tesseract/frontend/Cashier/Logout.fxml</file>
             <file>file:/C:/Tesseract/src/tesseract/frontend/Cashier/get.java</file>
             <file>file:/C:/Tesseract/src/tesseract/frontend/login.java</file>
@@ -18,6 +19,14 @@
             <file>file:/C:/Tesseract/src/tesseract/frontend/Cashier/addProductsTransaction.fxml</file>
             <file>file:/C:/Tesseract/src/tesseract/frontend/login1.css</file>
             <file>file:/C:/Tesseract/src/tesseract/frontend/Cashier/session.java</file>
+=======
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/admin/transactionPane.fxml</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/admin/TransactionPaneController.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/admin/CashierPaneController.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/transactions.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/admin/AdminMainController.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/loadTransactions.java</file>
+>>>>>>> 6377b1abd9e3fbb2a97e8800c56e23271fbd1f45
         </group>
     </open-files>
 </project-private>
