@@ -45,8 +45,6 @@ public class LoginController {
     }
 
     void initialize() {
-        assert mainPane != null : "fx:id=\"mainPane\" was not injected: check your FXML file 'login.fxml'.";
-        assert loginBtn != null : "fx:id=\"loginBtn\" was not injected: check your FXML file 'login.fxml'.";
         loginErrorText.setText("");
     }
     
