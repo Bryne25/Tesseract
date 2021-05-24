@@ -76,6 +76,11 @@ public class EditCashierController implements Initializable {
                 Parent root = FXMLLoader.load(getClass().getResource("cashierPane.fxml"));
                 Stage window = (Stage) back.getScene().getWindow();
                 window.setScene(new Scene(root,950,600));
+            }else{
+                updateCashier.updateCashier(id, fname.getText(), lname.getText(), username.getText(), pword.getText());
+                Parent root = FXMLLoader.load(getClass().getResource("cashierPane.fxml"));
+                Stage window = (Stage) back.getScene().getWindow();
+                window.setScene(new Scene(root,950,600));
             }
             
         }else{
