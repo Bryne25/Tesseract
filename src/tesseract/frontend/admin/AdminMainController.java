@@ -64,7 +64,10 @@ public class AdminMainController implements Initializable {
 
 
     @FXML
-    private void revTransactions(ActionEvent event) {
+    private void revTransactions(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("transactionPane.fxml"));
+        Stage window = (Stage) cashier.getScene().getWindow();
+        window.setScene(new Scene(root,950,600));
     }
 
     @FXML
