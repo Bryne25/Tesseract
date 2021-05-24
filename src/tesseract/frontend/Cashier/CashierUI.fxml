@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -9,7 +8,6 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -19,425 +17,418 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root id="AnchorPane" prefHeight="600" prefWidth="950" styleClass="mainFxmlClass" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesseract.frontend.Cashier.CashierUIController">
-    <stylesheets>
-        <URL value="@cashierui.css" />
-    </stylesheets>
-   <children>
-      <BorderPane layoutX="425.0" layoutY="209.0" prefHeight="200.0" prefWidth="200.0" styleClass="mainFxmlClass" stylesheets="@cashierui.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <right>
-            <VBox prefHeight="600.0" prefWidth="352.0" styleClass="leftBar" stylesheets="@cashierui.css" BorderPane.alignment="CENTER">
+<BorderPane prefHeight="600.0" prefWidth="960.0" styleClass="mainFxmlClass" stylesheets="@cashierui.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesseract.frontend.Cashier.CashierUIController">
+   <right>
+      <VBox prefHeight="600.0" prefWidth="352.0" styleClass="leftBar" stylesheets="@cashierui.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="299.0" VBox.vgrow="ALWAYS">
                <children>
-                  <HBox alignment="CENTER" prefHeight="74.0" prefWidth="299.0" VBox.vgrow="ALWAYS">
+                  <Label fx:id="selectedProductName" text="Product Name" textFill="#fffafa">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="527.0" prefWidth="259.0" styleClass="leftBarProduct" stylesheets="@cashierui.css">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </VBox.margin>
+               <children>
+                  <ImageView fx:id="selectedProduct" fitHeight="246.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@Product%20Pictures/Mendini-Violin.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+                  <HBox prefHeight="31.0" prefWidth="259.0">
                      <children>
-                        <Label fx:id="selectedProductName" text="Product Name" textFill="#fffafa">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                           <HBox.margin>
+                              <Insets left="15.0" top="5.0" />
+                           </HBox.margin>
                            <font>
-                              <Font name="System Bold" size="28.0" />
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="58.0" prefWidth="259.0">
+                     <children>
+                        <Label fx:id="selectedProductDescription" prefHeight="54.0" prefWidth="283.0" styleClass="cashierBlankDescription" text="- two line description" textAlignment="JUSTIFY">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Italic" size="14.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="527.0" prefWidth="259.0" styleClass="leftBarProduct" stylesheets="@cashierui.css">
+                  <HBox alignment="CENTER" prefHeight="2.0" prefWidth="259.0">
+                     <children>
+                        <Separator prefHeight="0.0" prefWidth="232.0" valignment="BOTTOM">
+                           <HBox.margin>
+                              <Insets top="4.0" />
+                           </HBox.margin>
+                        </Separator>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="41.0" prefWidth="259.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" textAlignment="RIGHT" wrappingWidth="52.80340576171875">
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="selectedProductPrice" prefHeight="34.0" prefWidth="92.0" styleClass="cashierBlankPrice">
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="6.0" prefWidth="259.0">
+                     <children>
+                        <Separator prefHeight="0.0" prefWidth="232.0">
+                           <HBox.margin>
+                              <Insets top="4.0" />
+                           </HBox.margin>
+                        </Separator>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="259.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity :">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="selectedProductQuantity" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="55.0" promptText="0">
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <Button fx:id="addProduct" mnemonicParsing="false" prefHeight="43.0" prefWidth="271.0" styleClass="addBtn" stylesheets="@cashierui.css" text="Add" textFill="WHITE">
                      <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" />
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Century Gothic" size="30.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <left>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="97.0" styleClass="rightBar" stylesheets="@cashierui.css" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="5.0" top="10.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox prefHeight="593.0" prefWidth="153.0">
+               <children>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="87.0" styleClass="rightBarProducts" stylesheets="@cashierui.css">
+                     <VBox.margin>
+                        <Insets left="5.0" top="140.0" />
                      </VBox.margin>
                      <children>
-                        <ImageView fx:id="selectedProduct" fitHeight="246.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                        <ImageView fitHeight="65.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Product%20Pictures/Mendini-Violin.png" />
+                              <Image url="@Product%20Pictures/Products-icon.png" />
                            </image>
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </ImageView>
-                        <HBox prefHeight="31.0" prefWidth="259.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
-                                 <HBox.margin>
-                                    <Insets left="15.0" top="5.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Century Gothic" size="17.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="58.0" prefWidth="259.0">
-                           <children>
-                              <Label fx:id="selectedProductDescription" prefHeight="54.0" prefWidth="283.0" styleClass="cashierBlankDescription" text="- two line description" textAlignment="JUSTIFY">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="System Italic" size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="2.0" prefWidth="259.0">
-                           <children>
-                              <Separator prefHeight="0.0" prefWidth="232.0" valignment="BOTTOM">
-                                 <HBox.margin>
-                                    <Insets top="4.0" />
-                                 </HBox.margin>
-                              </Separator>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="259.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" textAlignment="RIGHT" wrappingWidth="52.80340576171875">
-                                 <font>
-                                    <Font name="Century Gothic" size="17.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Text>
-                              <Label fx:id="selectedProductPrice" prefHeight="34.0" prefWidth="92.0" styleClass="cashierBlankPrice">
-                                 <font>
-                                    <Font name="Century Gothic" size="17.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="3.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="6.0" prefWidth="259.0">
-                           <children>
-                              <Separator prefHeight="0.0" prefWidth="232.0">
-                                 <HBox.margin>
-                                    <Insets top="4.0" />
-                                 </HBox.margin>
-                              </Separator>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="259.0">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity :">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Century Gothic" size="17.0" />
-                                 </font>
-                              </Text>
-                              <TextArea fx:id="selectedProductQuantity" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="55.0" promptText="0">
-                                 <font>
-                                    <Font name="Century Gothic" size="17.0" />
-                                 </font>
-                              </TextArea>
-                           </children>
-                        </HBox>
-                        <Button fx:id="addProduct" mnemonicParsing="false" prefHeight="43.0" prefWidth="271.0" styleClass="addBtn" stylesheets="@cashierui.css" text="Add" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
+                        <Label styleClass="rightBarProductsText" stylesheets="@cashierui.css" text="Products">
                            <font>
-                              <Font name="Century Gothic" size="30.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </Button>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="13.0" prefWidth="97.0" />
+                  <VBox fx:id="clickedTransaction" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="87.0" styleClass="rightBarTransaction" stylesheets="@cashierui.css">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="65.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" styleClass="rightBarTransaction">
+                           <image>
+                              <Image url="@Product%20Pictures/Transaction-icon.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label styleClass="rightBarTransactionText" stylesheets="@cashierui.css" text="Transaction">
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="13.0" prefWidth="97.0" />
+                  <VBox fx:id="clickedLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="87.0" styleClass="rightBarLogout" stylesheets="@cashierui.css">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Product%20Pictures/exit-icon.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="rightBarLogoutText" text="Logout">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
                      </children>
                   </VBox>
                </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
             </VBox>
-         </right>
-         <left>
-            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="97.0" styleClass="rightBar" stylesheets="@cashierui.css" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="10.0" left="5.0" top="10.0" />
-               </BorderPane.margin>
+         </children>
+      </HBox>
+   </left>
+   <center>
+      <VBox prefHeight="600.0" prefWidth="439.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="61.0" prefWidth="508.0" stylesheets="@cashierui.css">
                <children>
-                  <VBox prefHeight="593.0" prefWidth="153.0">
-                     <children>
-                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="87.0" styleClass="rightBarProducts" stylesheets="@cashierui.css">
-                           <VBox.margin>
-                              <Insets left="5.0" top="140.0" />
-                           </VBox.margin>
-                           <children>
-                              <ImageView fitHeight="65.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@Product%20Pictures/Products-icon.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label styleClass="rightBarProductsText" stylesheets="@cashierui.css" text="Products">
-                                 <font>
-                                    <Font name="Century Gothic" size="15.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <HBox prefHeight="13.0" prefWidth="97.0" />
-                        <VBox fx:id="clickedTransaction" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="87.0" styleClass="rightBarTransaction" stylesheets="@cashierui.css">
-                           <VBox.margin>
-                              <Insets left="5.0" />
-                           </VBox.margin>
-                           <children>
-                              <ImageView fitHeight="65.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" styleClass="rightBarTransaction">
-                                 <image>
-                                    <Image url="@Product%20Pictures/Transaction-icon.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets top="3.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label styleClass="rightBarTransactionText" stylesheets="@cashierui.css" text="Transaction">
-                                 <font>
-                                    <Font name="Century Gothic" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <HBox prefHeight="13.0" prefWidth="97.0" />
-                        <VBox fx:id="clickedLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="87.0" prefWidth="87.0" styleClass="rightBarLogout" stylesheets="@cashierui.css">
-                           <VBox.margin>
-                              <Insets left="5.0" />
-                           </VBox.margin>
-                           <children>
-                              <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@Product%20Pictures/exit-icon.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets left="10.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="rightBarLogoutText" text="Logout">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </VBox>
-                     </children>
-                  </VBox>
+                  <ImageView fitHeight="59.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Product%20Pictures/cashier-icon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="34.0" prefWidth="158.0" text="Welcome, ">
+                     <font>
+                        <Font name="Century Gothic" size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="cashierfname" text="fname">
+                     <font>
+                        <Font name="Century Gothic" size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="cashierlname" text="lname">
+                     <font>
+                        <Font name="Century Gothic" size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
-         </left>
-         <center>
-            <VBox prefHeight="600.0" prefWidth="439.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="9.0" prefWidth="449.0" styleClass="seperatorColor" stylesheets="@cashierui.css">
                <children>
-                  <HBox prefHeight="61.0" prefWidth="508.0" stylesheets="@cashierui.css">
-                     <children>
-                        <ImageView fitHeight="59.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Product%20Pictures/cashier-icon.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" top="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="34.0" prefWidth="158.0" text="Welcome, ">
-                           <font>
-                              <Font name="Century Gothic" size="30.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label fx:id="cashierfname" text="fname">
-                           <font>
-                              <Font name="Century Gothic" size="30.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets top="15.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label fx:id="cashierlname" text="lname">
-                           <font>
-                              <Font name="Century Gothic" size="30.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="5.0" top="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="9.0" prefWidth="449.0" styleClass="seperatorColor" stylesheets="@cashierui.css">
-                     <children>
-                        <Separator prefHeight="3.0" prefWidth="491.0" style="-fx-background-color: black;" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="521.0" prefWidth="496.0">
-                     <children>
-                        <GridPane alignment="CENTER" hgap="10.0" prefHeight="508.0" prefWidth="494.0" vgap="10.0">
-                          <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="119.0" prefWidth="38.0" styleClass="productBorder">
-                                 <children>
-                                    <ImageView fx:id="product1" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Mendini-Violin.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName1" styleClass="productNameColor" stylesheets="@cashierui.css" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.columnIndex="1">
-                                 <children>
-                                    <ImageView fx:id="product2" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Stentor-Violin.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName2" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.columnIndex="2">
-                                 <children>
-                                    <ImageView fx:id="product3" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Makala-Ukulele.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName3" styleClass="productName" stylesheets="@cashierui.css" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.rowIndex="1">
-                                 <children>
-                                    <ImageView fx:id="product4" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Kanilea-Ukulele.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName4" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <children>
-                                    <ImageView fx:id="product5" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Gibson-Guitar.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName5" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                 <children>
-                                    <ImageView fx:id="product6" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Fender-Guitar.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName6" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" GridPane.rowIndex="2">
-                                 <children>
-                                    <ImageView fx:id="product7" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Classical-Guitar.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName7" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <children>
-                                    <ImageView fx:id="product8" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/C-Bechstein-Piano.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName8" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                                 <children>
-                                    <ImageView fx:id="product9" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Bosenforder-Piano.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName9" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" GridPane.rowIndex="3">
-                                 <children>
-                                    <ImageView fx:id="product10" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@Product%20Pictures/Airsta-Flute.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="productName10" text="Product Name" textFill="WHITE">
-                                       <font>
-                                          <Font name="Century Gothic Bold" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </children>
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </GridPane>
-                     </children>
-                  </HBox>
+                  <Separator prefHeight="3.0" prefWidth="491.0" style="-fx-background-color: black;" />
                </children>
-            </VBox>
-         </center>
-      </BorderPane>
-   </children>
-</fx:root>
+            </HBox>
+            <HBox prefHeight="521.0" prefWidth="496.0">
+               <children>
+                  <GridPane alignment="CENTER" hgap="10.0" prefHeight="508.0" prefWidth="494.0" vgap="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="119.0" prefWidth="38.0" styleClass="productBorder">
+                           <children>
+                              <ImageView fx:id="product1" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Mendini-Violin.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName1" styleClass="productNameColor" stylesheets="@cashierui.css" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.columnIndex="1">
+                           <children>
+                              <ImageView fx:id="product2" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Stentor-Violin.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName2" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.columnIndex="2">
+                           <children>
+                              <ImageView fx:id="product3" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Makala-Ukulele.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName3" styleClass="productName" stylesheets="@cashierui.css" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView fx:id="product4" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Kanilea-Ukulele.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName4" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView fx:id="product5" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Gibson-Guitar.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName5" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" stylesheets="@cashierui.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <ImageView fx:id="product6" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Fender-Guitar.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName6" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView fx:id="product7" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Classical-Guitar.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName7" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView fx:id="product8" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/C-Bechstein-Piano.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName8" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <ImageView fx:id="product9" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Bosenforder-Piano.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName9" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productBorder" GridPane.rowIndex="3">
+                           <children>
+                              <ImageView fx:id="product10" fitHeight="99.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Product%20Pictures/Airsta-Flute.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="productName10" text="Product Name" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </GridPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

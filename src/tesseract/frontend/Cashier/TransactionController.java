@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,13 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class TransactionController {
+public class TransactionController implements Initializable{
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
     
     //Left Bar Navigation Panel
     @FXML
@@ -57,24 +53,20 @@ public class TransactionController {
         Parent root = FMXLLoader.load(getClass().getResource("CashierUI.fxml"));
         Stage window = (Stage) clickedProducts.getScene().getWindow();
         window.setScene(new Scene(root,950,600));
-        session.endSession();
     }
     
-    @FXML
     private void clickedLogout(ActionEvent event)throws IOException{
         Parent root = FMXLLoader.load(getClass().getResource("Logout.fxml"));
         Stage window = (Stage) clickedLogout.getScene().getWindow();
         window.setScene(new Scene(root,950,600));
-        session.endSession();
     }
     private void completeTransaction(ActionEvent event)throws IOException{
         Parent root = FMXLLoader.load(getClass().getResource("CompletedTransaction.fxml"));
         Stage window = (Stage) completeTransaction.getScene().getWindow();
         window.setScene(new Scene(root,950,600));
-        session.endSession();
     }
-    @FXML
-    void initialize() {
-
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
     }
 }

@@ -20,11 +20,7 @@
             <Image url="@Pictures/login%20pic%201.png" />
          </image>
       </ImageView>
-<<<<<<< HEAD
       <TextField fx:id="userName" layoutX="585.0" layoutY="258.0" prefHeight="59.0" prefWidth="280.0" promptText="Username" style="-fx-border-color: black;" styleClass="textFields" stylesheets="@login1.css">
-=======
-      <TextField fx:id="userName" layoutX="585.0" layoutY="258.0" prefHeight="59.0" prefWidth="280.0" promptText="Username" style="-fx-border-color: black;">
->>>>>>> 6377b1abd9e3fbb2a97e8800c56e23271fbd1f45
          <font>
             <Font name="Consolas" size="20.0" />
          </font>

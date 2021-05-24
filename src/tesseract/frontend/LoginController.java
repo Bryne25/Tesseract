@@ -52,17 +52,16 @@ public class LoginController {
                 //scene load admin here
             }else{
                 session.acceptSession(activeUser);
-                System.out.println(session.getUsername());
+                Parent root = FXMLLoader.load(getClass().getResource("Cashier/CashierUI.fxml"));
+                Stage window = (Stage) loginBtn.getScene().getWindow();
+                window.setScene(new Scene(root,950,600));
             }
         }
     }
 
     
     void initialize() {
-<<<<<<< HEAD
         loginErrorText.setText("");
-=======
->>>>>>> 6377b1abd9e3fbb2a97e8800c56e23271fbd1f45
     }
     
     public String getUsername(){

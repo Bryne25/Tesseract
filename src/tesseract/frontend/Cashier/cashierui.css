@@ -118,7 +118,7 @@
     -fx-alignment: CENTER;
     -fx-text-fill: white;
     -fx-text-alignment: CENTER;
-    //-fx-background-color:#C0C0C0;
+    -fx-background-color:#C0C0C0;
 }
 /*Customer Information*/
 .customerInformation{
