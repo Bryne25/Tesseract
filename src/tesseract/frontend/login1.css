@@ -1,0 +1,11 @@
+.button{
+    -fx-background-color: #302D2D;
+}
+.button:hover{
+    -fx-background-color:gray;
+    -fx-border-color:#302D2D;
+}
+.textFields{
+    -fx-text-fill:black;
+    -fx-font-color:black;
+}

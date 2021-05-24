@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="600" prefWidth="950" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesseract.frontend.LoginController">
    <children>
-    <Button fx:id="loginBtn" layoutX="585.0" layoutY="410.0" mnemonicParsing="false" onAction="#clickedLoginBtn" prefHeight="59.0" prefWidth="280.0" style="-fx-background-color: #302D2D; -fx-cursor: hand;" text="Log in" textFill="WHITE">
+    <Button fx:id="loginBtn" layoutX="585.0" layoutY="410.0" mnemonicParsing="false" onAction="#clickedLoginBtn" prefHeight="59.0" prefWidth="280.0" style="-fx-cursor: hand;" stylesheets="@login1.css" text="Log in" textFill="WHITE">
          <font>
             <Font name="Century Gothic" size="24.0" />
          </font></Button>
@@ -20,7 +20,11 @@
             <Image url="@Pictures/login%20pic%201.png" />
          </image>
       </ImageView>
+<<<<<<< HEAD
+      <TextField fx:id="userName" layoutX="585.0" layoutY="258.0" prefHeight="59.0" prefWidth="280.0" promptText="Username" style="-fx-border-color: black;" styleClass="textFields" stylesheets="@login1.css">
+=======
       <TextField fx:id="userName" layoutX="585.0" layoutY="258.0" prefHeight="59.0" prefWidth="280.0" promptText="Username" style="-fx-border-color: black;">
+>>>>>>> 6377b1abd9e3fbb2a97e8800c56e23271fbd1f45
          <font>
             <Font name="Consolas" size="20.0" />
          </font>

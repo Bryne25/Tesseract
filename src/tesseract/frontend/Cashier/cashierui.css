@@ -1,0 +1,177 @@
+/*CashierUI FXML*/
+.mainFxmlClass {
+    -fx-background-color: white;
+}
+
+/*Right Bar*/
+.rightBar{
+   -fx-background-color: #1c1c1c;
+   -fx-background-radius:30px;
+}
+
+.rightBarProducts{
+    -fx-background-color: lightgray;
+    -fx-background-radius:10px;
+}
+.rightBarProductsText{
+    -fx-text-fill: black;
+}
+
+
+.rightBarTransaction{
+    -fx-border-color:white;
+    -fx-border-radius:10px;
+}
+.rightBarTransactionText{
+    -fx-text-fill: white;
+}
+.rightBarTransaction, .rightBarTransactionText:hover{
+    -fx-border-color:lightgray;
+    -fx-border-radius:10px;
+    -fx-text-fill: black;
+}
+
+.rightBarLogout{
+    -fx-border-color:white;
+    -fx-border-radius:10px;
+}
+.rightBarLogoutText{
+    -fx-text-fill: white;
+}
+.rightBarLogout,.rightBarLogoutText:hover{
+    -fx-border-color:lightgray;
+    -fx-border-radius:10px;
+    -fx-text-fill: black;
+}
+.productText{
+    -fx-font-color:black;
+}
+
+/*Products*/
+.productBorder{
+    -fx-background-color:#C0C0C0;
+    -fx-background-radius:20px;
+    -fx-border-radius:20px;
+    -fx-border-color:white;
+}
+.productBorder:hover{
+    -fx-border-color:black;
+    -fx-background-radius:20px;
+}
+
+/*Left Bar*/
+.leftBar{
+    -fx-background-color: #1c1c1c;
+}
+
+.leftBarProduct{
+    -fx-background-color: whitesmoke;
+    -fx-background-radius:20px;
+}
+.addBtn{
+    -fx-background-color:#1c1c1c;
+    -fx-font-color: white;
+    -fx-background-radius:20px;
+    -fx-font-size:20;
+}
+.addBtn:hover{
+    -fx-background-color:gray;
+}
+
+.quantity{
+    -fx-border:no-border;
+}
+.cashierBlankPrice{
+    -fx-text-fill: black;
+    -fx-font-size:17;
+    -fx-font-family:"Century Gothic";
+}
+.cashierBlankDescription{
+    -fx-text-fill: black;
+    -fx-font-size:14;
+    -fx-font-family:"Century Gothic";
+    -fx-font-style:italic;
+}
+/*Transaction FMXL*/
+
+.rightBarProductsT{
+    -fx-border-color:white;
+    -fx-border-radius:10px;
+}
+.rightBarProductsT:hover{
+    -fx-background-color: lightgray;
+    -fx-background-radius:10px;
+    -fx-text-fill: black;
+}
+
+.rightBarTransactionT{
+    -fx-background-color: lightgray;
+    -fx-background-radius:10px;
+}
+
+/*Table View*/
+.tableView{
+    -fx-alignment: CENTER;
+    -fx-border-color: #1c1c1c;
+}
+.tableView .table-column{
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+    -fx-text-alignment: CENTER;
+    //-fx-background-color:#C0C0C0;
+}
+/*Customer Information*/
+.customerInformation{
+    -fx-background-color: white;
+    -fx-background-radius:20px;
+    -fx-text-fill: black;
+}
+.textFields{
+    -fx-background-color:transparent;
+    -fx-border:1px;
+    -fx-border-color:white;
+    -fx-text-fill:white;
+}
+.completeTransactionBtn{
+    -fx-background-color:white;
+    -fx-text-fill: black;
+    -fx-font-size:20;
+    -fx-font-family:"Century Gothic";
+}
+.completeTransactionBtn:hover{
+    -fx-background-color:gray;
+    -fx-text-fill: white;
+    -fx-font-size:20;
+    -fx-font-family:"Century Gothic";
+}
+.transactionBlankData{
+    -fx-text-fill: white;
+    -fx-font-size:25;
+    -fx-font-family:"Century Gothic";
+}
+
+/*Logout FXML*/
+
+.yesBtn{
+    -fx-background-color:gray;
+    -fx-text-fill: white;
+}
+.yesBtn:hover{
+    -fx-border-color:green;
+}
+.noBtn{
+    -fx-background-color:gray;
+    -fx-text-fill: white;
+}
+.noBtn:hover{
+    -fx-border-color:red;
+}
+
+/*CompletedTransaction FXML*/
+.newCustomerBtn{
+    -fx-background-color:gray;
+    -fx-text-fill: white;
+}
+.newCustomerBtn:hover{
+    -fx-background-color:#1c1c1c;
+}

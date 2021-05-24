@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import tesseract.backend.db;
@@ -25,6 +26,9 @@ public class login extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         primaryStage.setTitle("Tesseract");
         primaryStage.setScene(new Scene(root));
+       
+        Image logo = new Image("/tesseract/frontend/Pictures/logo.png");
+        primaryStage.getIcons().add(logo);
         primaryStage.setHeight(600);
         primaryStage.setWidth(950);
         primaryStage.setResizable(false);
