@@ -9,38 +9,48 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  *
  * @author TEST
  */
-public class loadProduct {
-    
-    static String prodName,prodDesc;
-    static int prodId, prodPrice, prodStock;
-    
-    public static ObservableList loadData(){
-        ObservableList<prodTable> data = FXCollections.observableArrayList();
+public class makeTransaction {
+    public static void makeTransaction(String fname,String lname,String address,String contact, int money, int change, int grandTotal,int quantity, int prodId) {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM product";
-            stmt = con.prepareStatement(queryString);
-            res = stmt.executeQuery(); 
-            
-            while(res.next()){
-                prodId = res.getInt("Product_Id");
-                prodName = res.getString("Product_Name");
-                prodDesc = res.getString("Product_Description");
-                prodPrice = res.getInt("Product_Price");
-                prodStock = res.getInt("Product_Stock");
-                
-                data.add(new prodTable(prodName,prodDesc,prodId,prodPrice,prodStock));
+            if(checkCustomer(fname,lname)){
+                int customId = getCustomerId(fname,lname);
+                int cashierId = session.cash_id;
+                String queryString = "INSERT INTO `transaction`(`Change`, `Grand_Total`, `Customer_Id`, `Cashier_Id`, `Product_Id`, `Quantity_Purchased`) VALUES (?,?,?,?,?,?)";
+                stmt = con.prepareStatement(queryString);
+                stmt.setInt(1, change);
+                stmt.setInt(2, grandTotal);
+                stmt.setInt(3, customId);
+                stmt.setInt(4, cashierId);
+                stmt.setInt(5, prodId);
+                stmt.setInt(6, quantity);
+                stmt.executeUpdate(); 
+                dropCart();
+            }else{
+                createCustomer(fname,lname,address,contact,money);
+                int customId = getCustomerId(fname,lname);
+                int cashierId = session.cash_id;
+                String queryString = "INSERT INTO `transaction`(`Change`, `Grand_Total`, `Customer_Id`, `Cashier_Id`, `Product_Id`,`Quantity_Purchased`) VALUES (?,?,?,?,?,?)";
+                stmt = con.prepareStatement(queryString);
+                stmt.setInt(1, change);
+                stmt.setInt(2, grandTotal);
+                stmt.setInt(3, customId);
+                stmt.setInt(4, cashierId);
+                stmt.setInt(5, prodId);
+                stmt.setInt(6, quantity);
+                stmt.executeUpdate();
+                dropCart();
             }
+            
+            
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -68,29 +78,21 @@ public class loadProduct {
                 }
             } 
         }
-        return data;
     }
     
-    public static ObservableList loadDataClient(){
-        ObservableList<prodTable> data = FXCollections.observableArrayList();
+    public static Boolean checkCustomer(String fname, String lname){
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM product";
+            String queryString = "SELECT * FROM customer WHERE First_Name = ? AND Last_Name = ?";
             stmt = con.prepareStatement(queryString);
-            res = stmt.executeQuery(); 
+            stmt.setString(1, fname);
+            stmt.setString(2, lname);;
+            res = stmt.executeQuery();
             
-            while(res.next()){
-                prodId = res.getInt("Product_Id");
-                prodName = res.getString("Product_Name");
-                prodDesc = res.getString("Product_Description");
-                prodPrice = res.getInt("Product_Price");
-                prodStock = res.getInt("Product_Stock");
-                
-                data.add(new prodTable(prodName,prodDesc,prodId,prodPrice,prodStock,1));
-            }
+            return res.next();
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -118,23 +120,26 @@ public class loadProduct {
                 }
             } 
         }
-        return data;
+        return false;
     }
     
-    public static String getProdName(int Id){
-        String name = null;
+    public static int getCustomerId(String fname, String lname){
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
+        int id = 0;
         try{
+            
             con = db.con();
-            String queryString = "SELECT * FROM product WHERE Product_ID = ?";
+            String queryString = "SELECT * FROM customer WHERE First_Name = ? AND Last_Name = ?";
             stmt = con.prepareStatement(queryString);
-            stmt.setInt(1,Id);
-            res = stmt.executeQuery(); 
+            stmt.setString(1, fname);
+            stmt.setString(2, lname);;
+            res = stmt.executeQuery();
             
             if(res.next()){
-                name = res.getString("Product_Name");     
+                id = res.getInt("Customer_Id");
+                return id;
             }
         }catch(SQLException e){
             System.out.println(e.toString());
@@ -163,25 +168,23 @@ public class loadProduct {
                 }
             } 
         }
-        return name;
+        return id;
+    }   
     
-    }
-    
-    public static int getProdPrice(int Id){
-        int price = 0;
+    public static void createCustomer(String fname,String lname,String address,String contact, int money){
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM product WHERE Product_ID = ?";
+            String queryString = "INSERT INTO `customer`( `Last_Name`, `First_Name`, `Address`, `Contact_No`, `Money`) VALUES(?,?,?,?,?)";
             stmt = con.prepareStatement(queryString);
-            stmt.setInt(1,Id);
-            res = stmt.executeQuery(); 
-            
-            if(res.next()){
-                price = res.getInt("Product_Price");
-            }
+            stmt.setString(1, lname);
+            stmt.setString(2, fname);
+            stmt.setString(3, address);
+            stmt.setString(4, contact);
+            stmt.setInt(5, money);
+            stmt.executeUpdate(); 
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -209,26 +212,20 @@ public class loadProduct {
                 }
             } 
         }
-        return price;
-    
+        
     }
     
-    public static String getProdDesc(int Id){
-        String desc = null;
-        Connection con = null;
+    public static void dropCart(){
+         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM product WHERE Product_ID = ?";
+            String queryString = "DELETE FROM cart";
             stmt = con.prepareStatement(queryString);
-            stmt.setInt(1,Id);
-            res = stmt.executeQuery(); 
-            
-            if(res.next()){
-                desc = res.getString("Product_Description");
-               
-            }
+
+            stmt.executeUpdate();
+
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -256,52 +253,5 @@ public class loadProduct {
                 }
             } 
         }
-        return desc;
-    }
-    
-    public static String getProdStock(int Id){
-        String desc = null;
-        Connection con = null;
-        PreparedStatement stmt = null;
-        ResultSet res = null;
-        try{
-            con = db.con();
-            String queryString = "SELECT * FROM product WHERE Product_ID = ?";
-            stmt = con.prepareStatement(queryString);
-            stmt.setInt(1,Id);
-            res = stmt.executeQuery(); 
-            
-            if(res.next()){
-                desc = res.getString("Product_Stock");
-               
-            }
-        }catch(SQLException e){
-            System.out.println(e.toString());
-        }finally {
-            if(res != null){
-                try { 
-                    res.close(); 
-                }catch (SQLException e) { 
-                    System.out.println(e.toString());
-                }
-            }   
-            
-            if(stmt != null){
-                try {
-                    stmt.close(); 
-                } catch (SQLException e) {
-                    System.out.println(e.toString());
-                }
-            }
-        
-            if(con != null){
-                try { 
-                    con.close(); 
-                } catch (SQLException e) { 
-                    System.out.println(e.toString());
-                }
-            } 
-        }
-        return desc;
     }
 }

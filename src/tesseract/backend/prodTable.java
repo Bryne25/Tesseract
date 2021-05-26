@@ -28,7 +28,7 @@ public class prodTable{
     String prodName,prodDesc;
     int prodId, prodPrice, prodStock;
     
-    Button edit;
+    Button edit,addProd;
     
     
     
@@ -46,6 +46,33 @@ public class prodTable{
         bindButton(this.edit);
         
     }
+
+    public prodTable(String prodName, String prodDesc, int prodId, int prodPrice, int prodStock, int sep) {
+        this.prodName = prodName;
+        this.prodDesc = prodDesc;
+        this.prodId = prodId;
+        this.prodPrice = prodPrice;
+        this.prodStock = prodStock;
+        if(productStockMani.getProdQuanti(prodId) != 0){
+            this.addProd = new Button("Add Product");
+            Font font = Font.font("ArialBlack", FontWeight.BOLD, FontPosture.REGULAR, 12);
+            this.addProd.setStyle("-fx-background-color: #1c1c1c; -fx-text-fill: white;");
+            this.addProd.setFont(font);
+
+            addButton(this.addProd);
+        }else{
+            this.addProd = new Button("Add Product");
+            Font font = Font.font("ArialBlack", FontWeight.BOLD, FontPosture.REGULAR, 12);
+            this.addProd.setStyle("-fx-background-color: #1c1c1c; -fx-text-fill: white;");
+            this.addProd.setFont(font);
+            this.addProd.setDisable(true);
+
+            addButton(this.addProd);
+        }
+        
+    }
+    
+    
 
     public String getProdName() {
         return prodName;
@@ -94,6 +121,16 @@ public class prodTable{
     public void setEdit(Button edit) {
         this.edit = edit;
     }
+
+    public Button getAddProd() {
+        return addProd;
+    }
+
+    public void setAddProd(Button addProd) {
+        this.addProd = addProd;
+    }
+    
+    
     
     private void bindButton(Button btn){
         btn.setOnAction(new EventHandler<ActionEvent>() {
@@ -116,6 +153,35 @@ public class prodTable{
         
     }
     
+    private void addButton(Button btn){
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent actionEvent) {
+                try {
+                    addButtonClick();
+                } catch (IOException ex) {
+                    Logger.getLogger(prodTable.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }
     
+    private void addButtonClick() throws IOException{
+        if(canAdd()){
+            newProd.addToCart(getProdId());
+            productStockMani.decreaseProduct(prodId);
+            Parent root = FXMLLoader.load(getClass().getResource("../frontend/Cashier/CashierUI.fxml"));
+            Stage window = (Stage) this.addProd.getScene().getWindow();
+            window.setScene(new Scene(root,950,600));
+        }
+        
+    }
+    
+    private Boolean canAdd(){
+        int stock = productStockMani.getProdQuanti(prodId);
+        stock = stock - 1;
+        return stock != -1;
+        
+        
+    }
     
 }

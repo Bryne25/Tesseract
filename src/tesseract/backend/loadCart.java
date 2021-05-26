@@ -5,49 +5,39 @@
  */
 package tesseract.backend;
 
-import java.sql.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.sql.*;
 
 /**
  *
  * @author TEST
  */
-public class loadTransactions {
-    
-    static String cashName, custFname, custLname,date,itemName;
-    static int itemQuant, itemPrice, transactionId;
+public class loadCart {
+    static String prodName;
+    static int cartId, prodPrice, prodQuant,prodId;
     
     public static ObservableList loadData(){
-        ObservableList<transactions> data = FXCollections.observableArrayList();
-        
+        ObservableList<cart> data = FXCollections.observableArrayList();
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet res = null;
         try{
             con = db.con();
-            String queryString = "SELECT * FROM transaction "
-                + "LEFT JOIN customer cu ON transaction.Customer_Id = cu.Customer_Id "
-                + "LEFT JOIN cashier c ON transaction.Cashier_Id = c.Cashier_Id "
-                + "LEFT JOIN product p ON transaction.Product_Id = p.Product_Id ";
-                
+            String queryString = "SELECT * FROM cart "
+                    + "INNER JOIN product p ON  cart.product_id = p.Product_Id ";
             stmt = con.prepareStatement(queryString);
             res = stmt.executeQuery(); 
-            while(res.next()){
-                transactionId = res.getInt("transaction.Transaction_Id");
-                cashName = res.getString("c.First_Name") +" "+ res.getString("c.Last_Name");
-                custFname = res.getString("cu.First_Name");
-                custLname = res.getString("cu.Last_Name");
-                date = res.getString("transaction.Date_Of_Purchase");
-                itemName = res.getString("p.Product_Name");
-                itemQuant = res.getInt("transaction.Quantity_Purchased");
-                itemPrice = res.getInt("p.Product_Price");
-                
-                System.out.println(cashName);
-                
-                data.add(new transactions(transactionId, cashName, custFname, custLname,date, itemName, itemQuant,itemPrice));
-            }
             
+            while(res.next()){
+                cartId = res.getInt("cart_id");
+                prodId = res.getInt("Product_Id");
+                prodName = res.getString("Product_Name");
+                prodPrice = res.getInt("Product_Price");
+                prodQuant = 0;
+                
+                data.add(new cart(prodName,prodPrice,prodQuant,cartId,prodId));
+            }
         }catch(SQLException e){
             System.out.println(e.toString());
         }finally {
@@ -75,7 +65,6 @@ public class loadTransactions {
                 }
             } 
         }
-        
         return data;
     }
 }

@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -62,6 +63,7 @@ public class TransactionPaneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<transactions> transData = loadTransactions.loadData();
+        System.out.println(transData.size());
         cashName.setCellValueFactory(new PropertyValueFactory<>("cashName"));
         custFname.setCellValueFactory(new PropertyValueFactory<>("custFname"));
         custLname.setCellValueFactory(new PropertyValueFactory<>("custLname"));
@@ -72,6 +74,7 @@ public class TransactionPaneController implements Initializable {
         itemPrice.setCellValueFactory(new PropertyValueFactory<>("itemPrice"));
 
         transactions.setItems(transData);
+        
         
         FilteredList<transactions> filteredData = new FilteredList<>(transData, b-> true);
         

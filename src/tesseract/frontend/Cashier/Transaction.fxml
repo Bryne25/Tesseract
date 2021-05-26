@@ -106,13 +106,11 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" stylesheets="@cashierui.css" BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="590.0" prefWidth="557.0" styleClass="tableView" stylesheets="@cashierui.css">
+            <TableView fx:id="prodView" prefHeight="590.0" prefWidth="557.0" styleClass="tableView" stylesheets="@cashierui.css">
                <columns>
-                  <TableColumn prefWidth="179.6666717529297" sortable="false" style="-fx-alignment: CENTER;" text="Product Name" />
-                  <TableColumn prefWidth="72.33334350585938" text="Price" />
-                  <TableColumn prefWidth="72.33334350585938" text="Quantity" />
-                  <TableColumn prefWidth="72.33334350585938" text="Total" />
-                  <TableColumn prefWidth="75.0" text="Delete" />
+                  <TableColumn fx:id="prodName" prefWidth="179.6666717529297" sortable="false" style="-fx-alignment: CENTER;" text="Product Name" />
+                  <TableColumn fx:id="prodPrice" prefWidth="179.0" text="Price" />
+                  <TableColumn fx:id="prodDel" prefWidth="107.0" text="Delete" />
                </columns>
                <HBox.margin>
                   <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
@@ -238,6 +236,11 @@
                               <Font name="Century Gothic" size="25.0" />
                            </font>
                         </Label>
+                        <Text fx:id="grandTotalValue" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="85.13671875">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Text>
                         <Label fx:id="grandTotal" prefHeight="38.0" prefWidth="93.0" styleClass="transactionBlankData" />
                      </children>
                   </HBox>
@@ -248,7 +251,7 @@
                               <Font name="Century Gothic" size="25.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="33.0" prefWidth="94.0" promptText="0" styleClass="textFields">
+                        <TextField fx:id="cashValue" onKeyTyped="#textChange" prefHeight="33.0" prefWidth="94.0" promptText="0" styleClass="textFields">
                            <font>
                               <Font name="Century Gothic" size="20.0" />
                            </font>
@@ -268,6 +271,11 @@
                               <Font name="Century Gothic" size="25.0" />
                            </font>
                         </Label>
+                        <Text fx:id="changeValue" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="100.13671875">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Text>
                         <Label fx:id="change" prefHeight="38.0" prefWidth="93.0" styleClass="transactionBlankData" />
                      </children>
                   </HBox>

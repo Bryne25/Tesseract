@@ -151,7 +151,7 @@
                   <TableView fx:id="Product" prefHeight="522.0" prefWidth="851.0" styleClass="tableView">
                     <columns>
                       <TableColumn fx:id="productName" prefWidth="150.0" text="Product Name" />
-                      <TableColumn fx:id="productName" minWidth="0.0" prefWidth="113.33331298828125" text="Product Price" />
+                      <TableColumn fx:id="productPrice" minWidth="0.0" prefWidth="113.33331298828125" text="Product Price" />
                         <TableColumn fx:id="productDescription" prefWidth="335.33331298828125" text="Product Description" />
                         <TableColumn fx:id="numStocks" minWidth="0.0" prefWidth="126.66668701171875" text="Number of Stocks" />
                         <TableColumn fx:id="addAction" prefWidth="113.0" text="Action" />
