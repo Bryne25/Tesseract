@@ -29,8 +29,6 @@ public class login extends Application {
        
         Image logo = new Image("/tesseract/frontend/Pictures/logo.png");
         primaryStage.getIcons().add(logo);
-        primaryStage.setHeight(600);
-        primaryStage.setWidth(950);
         primaryStage.setResizable(false);
         primaryStage.show();
     }

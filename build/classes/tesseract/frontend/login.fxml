@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="600" prefWidth="950" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesseract.frontend.LoginController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600" prefWidth="950" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tesseract.frontend.LoginController">
    <children>
     <Button fx:id="loginBtn" layoutX="585.0" layoutY="410.0" mnemonicParsing="false" onAction="#clickedLoginBtn" prefHeight="59.0" prefWidth="280.0" style="-fx-cursor: hand;" stylesheets="@login1.css" text="Log in" textFill="WHITE">
          <font>
