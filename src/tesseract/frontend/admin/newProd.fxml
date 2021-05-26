@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -34,6 +35,9 @@
                <font>
                   <Font name="Arial Black" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text fx:id="err" fill="RED" layoutX="265.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="567.0" />
             <Text layoutX="130.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Price:">
@@ -51,6 +55,9 @@
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text layoutX="288.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW PRODUCT">
                <font>

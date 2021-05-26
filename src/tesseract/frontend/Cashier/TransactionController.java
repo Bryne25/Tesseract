@@ -6,12 +6,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -20,10 +22,10 @@ public class TransactionController implements Initializable{
     
     //Left Bar Navigation Panel
     @FXML
-    private VBox clickedProducts;
+    private VBox Products;
 
     @FXML
-    private VBox clickedLogout;
+    private VBox Logout;
     
     //Text Fields for Customer Information
     @FXML
@@ -49,22 +51,25 @@ public class TransactionController implements Initializable{
     @FXML
     private Button completeTransaction;
 
-    private void clickedProducts(ActionEvent event)throws IOException{
-        Parent root = FMXLLoader.load(getClass().getResource("CashierUI.fxml"));
-        Stage window = (Stage) clickedProducts.getScene().getWindow();
-        window.setScene(new Scene(root,950,600));
+    public void clickedComplete(ActionEvent event)throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("CompletedTransaction.fxml"));
+        Stage window = (Stage) completeTransaction.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
+    public void clickedProducts(MouseEvent event)throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("CashierUI.fxml"));
+        Stage window = (Stage) Products.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
     
-    private void clickedLogout(ActionEvent event)throws IOException{
-        Parent root = FMXLLoader.load(getClass().getResource("Logout.fxml"));
-        Stage window = (Stage) clickedLogout.getScene().getWindow();
-        window.setScene(new Scene(root,950,600));
+    public void clickedLogout(MouseEvent event)throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("Logout.fxml"));
+        Stage window = (Stage) Logout.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
-    private void completeTransaction(ActionEvent event)throws IOException{
-        Parent root = FMXLLoader.load(getClass().getResource("CompletedTransaction.fxml"));
-        Stage window = (Stage) completeTransaction.getScene().getWindow();
-        window.setScene(new Scene(root,950,600));
-    }
+    
+   
+   
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
