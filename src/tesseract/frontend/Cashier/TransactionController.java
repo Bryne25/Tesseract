@@ -80,16 +80,14 @@ public class TransactionController implements Initializable{
     @FXML
     public void clickedComplete(ActionEvent event)throws IOException{
         compTransact();
-        if(canTransact){
+        if(canTransact && isNumeric(CustomerContact.getText()) && totalCounter != 0){
             Parent root = FXMLLoader.load(getClass().getResource("CompletedTransaction.fxml"));
             Stage window = (Stage) completeTransaction.getScene().getWindow();
             window.setScene(new Scene(root));
         }
-        
-        
-        
-        
     }
+    
+    
     @FXML
     public void clickedProducts(MouseEvent event)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("CashierUI.fxml"));
