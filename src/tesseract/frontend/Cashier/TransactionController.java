@@ -75,12 +75,17 @@ public class TransactionController implements Initializable{
 
     int totalCounter;
     
+    Boolean canTransact;
+    
     @FXML
     public void clickedComplete(ActionEvent event)throws IOException{
         compTransact();
-        Parent root = FXMLLoader.load(getClass().getResource("CompletedTransaction.fxml"));
-        Stage window = (Stage) completeTransaction.getScene().getWindow();
-        window.setScene(new Scene(root));
+        if(canTransact){
+            Parent root = FXMLLoader.load(getClass().getResource("CompletedTransaction.fxml"));
+            Stage window = (Stage) completeTransaction.getScene().getWindow();
+            window.setScene(new Scene(root));
+        }
+        
         
         
         
@@ -105,8 +110,14 @@ public class TransactionController implements Initializable{
         for(cart item : prodView.getItems()){
             int id = item.getProdId();
             if(item.getSkip() != true){
-                int counter = countDuplicates(id);
-                makeTransaction.makeTransaction(customerFName.getText(), customerLName.getText(), CustomerAddress.getText(), CustomerContact.getText(), Integer.parseInt(cashValue.getText()), Integer.parseInt(changeValue.getText()), Integer.parseInt(grandTotalValue.getText()), counter,id);
+                if(Integer.signum(Integer.parseInt(changeValue.getText())) > 0){
+                    canTransact = true;
+                    int counter = countDuplicates(id);
+                    makeTransaction.makeTransaction(customerFName.getText(), customerLName.getText(), CustomerAddress.getText(), CustomerContact.getText(), Integer.parseInt(cashValue.getText()), Integer.parseInt(changeValue.getText()), Integer.parseInt(grandTotalValue.getText()), counter,id);
+                }else{
+                    canTransact = false;
+                }
+                
             }
             
         }

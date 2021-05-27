@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import tesseract.backend.newCashier;
@@ -29,8 +30,7 @@ import tesseract.backend.newCashier;
 public class NewCashierController implements Initializable {
 
     @FXML
-    private TextArea fname;
-    @FXML
+    private TextField fname;
     private TextArea lname;
     @FXML
     private PasswordField pword;
@@ -43,7 +43,9 @@ public class NewCashierController implements Initializable {
     @FXML
     private Text err;
     @FXML
-    private TextArea username;
+    private TextField username;
+    @FXML
+    private TextField lname1;
 
     /**
      * Initializes the controller class.

@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import tesseract.backend.newProd;
@@ -30,9 +31,9 @@ public class NewProdController implements Initializable {
     @FXML
     private Button back;
     @FXML
-    private TextArea prodName;
+    private TextField prodName;
     @FXML
-    private TextArea prodPrice;
+    private TextField prodPrice;
     @FXML
     private TextArea prodDesc;
     @FXML
@@ -40,7 +41,7 @@ public class NewProdController implements Initializable {
     @FXML
     private Text err;
     @FXML
-    private TextArea prodStock;
+    private TextField prodStock;
 
     /**
      * Initializes the controller class.

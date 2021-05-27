@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/cart.java</file>
             <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/Cashier/TransactionController.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/admin/NewProdController.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/admin/NewCashierController.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/productStockMani.java</file>
             <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/backend/makeTransaction.java</file>
+            <file>file:/C:/Users/TEST/Desktop/Assignment/Tesseract/Tesseract/src/tesseract/frontend/Cashier/LogoutController.java</file>
         </group>
     </open-files>
 </project-private>
